@@ -12,9 +12,9 @@ script = ExtResource( 3 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 64 )
-rotation = -0.261799
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Hand" parent="UI" instance=ExtResource( 5 )]
 anchor_left = 0.5

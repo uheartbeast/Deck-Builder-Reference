@@ -7,13 +7,14 @@ export(Resource) var card_selected_style
 
 var is_hovered := false setget set_is_hovered
 var is_selected := false setget set_is_selected
-var is_disabled := false
+var is_disabled := false setget set_is_disabled
 var info := ""
 
 onready var card_sprite := $"%CardSprite"
 onready var card_name := $"%CardName"
 onready var card_art := $"%CardArt"
 onready var card_description := $"%CardDescription"
+onready var line := $Line2D
 
 func set_card_data(value: Resource) -> void:
 	card_data = value
@@ -24,6 +25,7 @@ func set_card_data(value: Resource) -> void:
 func set_is_hovered(value : bool) -> void:
 	is_hovered = value
 	if not is_inside_tree(): return
+	if is_disabled: return
 	if is_hovered:
 		card_sprite.rect_position.y = -8
 		Events.emit_signal("request_show_card_info", info)
@@ -33,10 +35,43 @@ func set_is_hovered(value : bool) -> void:
 
 func set_is_selected(value : bool) -> void:
 	is_selected = value
+	if not is_inside_tree(): return
+	if is_disabled: return
+	if is_selected:
+		var main = get_tree().current_scene
+		get_parent().remove_child(self)
+		main.add_child(self)
+		Events.emit_signal("request_disable_all_cards")
+	else:
+		Events.emit_signal("request_enable_all_cards")
 	update_style()
 
+func set_is_disabled(value : bool) -> void:
+	is_disabled = value
+
 func _ready() -> void:
+	Events.connect("request_disable_all_cards", self, "set_is_disabled", [true])
+	Events.connect("request_enable_all_cards", self, "set_is_disabled", [false])
 	update_card()
+
+func _process(delta : float) -> void:
+	if is_selected:
+		rect_global_position = get_tree().current_scene.get_local_mouse_position()-rect_size/2
+#		line.points = [rect_size/2, get_local_mouse_position()]
+	else:
+		pass
+#		line.points = []
+
+func _input(event : InputEvent) -> void:
+	if event.is_action_pressed("ui_mouse_right"):
+		var hand = get_tree().current_scene.find_node("Hand")
+		if hand:
+			get_parent().remove_child(self)
+			hand.add_child(self)
+			Events.emit_signal("request_enable_all_cards")
+			self.is_selected = false
+			ReferenceStash.selected_card = null
+			Events.emit_signal("request_hide_card_info")
 
 func update_style() -> void:
 	if is_selected:
