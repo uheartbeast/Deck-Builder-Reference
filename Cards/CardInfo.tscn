@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PixelRPGFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Cards/CardInfo.gd" type="Script" id=2]
+
+[node name="CardInfo" type="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -168.0
+margin_top = -76.0
+margin_right = 168.0
+margin_bottom = -44.0
+color = Color( 0.247059, 0.14902, 0.192157, 0.45098 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="InfoLabel" type="RichTextLabel" parent="MarginContainer"]
+unique_name_in_owner = true
+margin_top = 5.0
+margin_right = 336.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Axe
+Deal 5 [color=red]damage[/color]
+Gain 4 [color=teal]block[/color][/center]"
+text = "Axe
+Deal 5 damage
+Gain 4 block"
+fit_content_height = true
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="."]

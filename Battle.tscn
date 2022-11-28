@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Cards/Card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Battle.gd" type="Script" id=3]
+[ext_resource path="res://Cards/ShieldCard.tres" type="Resource" id=4]
+[ext_resource path="res://Hand.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Cards/CardInfo.tscn" type="PackedScene" id=6]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 64 )
+rotation = -0.261799
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Hand" parent="UI" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = 4.0
+
+[node name="Card" parent="UI/Hand" instance=ExtResource( 2 )]
+margin_left = 86.0
+margin_right = 110.0
+
+[node name="Card2" parent="UI/Hand" instance=ExtResource( 2 )]
+margin_left = 114.0
+margin_right = 138.0
+card_data = ExtResource( 4 )
+
+[node name="CardInfo" parent="UI" instance=ExtResource( 6 )]

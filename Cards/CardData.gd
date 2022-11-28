@@ -1,0 +1,14 @@
+class_name CardData
+extends Resource
+
+enum TargetType {
+	SELF,
+	ENEMY,
+}
+
+export(String) var name := ""
+export(int) var mana_cost := 1
+export(int) var damage := 0
+export(int) var block := 0
+export(TargetType) var target_type
+export(Texture) var art

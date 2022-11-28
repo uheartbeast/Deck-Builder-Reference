@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Textures/tile_0102.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Shield"
+mana_cost = 1
+damage = 1
+block = 5
+target_type = 0
+art = ExtResource( 2 )
