@@ -22,7 +22,8 @@ func update_enemy() -> void:
 func take_hit() -> void:
 	sprite.material = WHITE_SPRITE_MATERIAL
 	yield(Shaker.shake(self, 6), "completed")
-	sprite.material = null
+#	sprite.material = null
+	queue_free()
 
 func _on_Enemy_input_event(viewport, event, shape_idx):
 	if (event.is_action_released("ui_mouse_left")
