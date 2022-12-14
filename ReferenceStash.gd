@@ -1,4 +1,4 @@
 extends Node
 
-var selected_card : Card
+var selected_card : CardState
 var card_arc : CardArc

@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "MarginContainer",
-"class": "Card",
+"base": "Node2D",
+"class": "AB",
 "language": "GDScript",
-"path": "res://Cards/Card.gd"
+"path": "res://AB.gd"
 }, {
 "base": "Line2D",
 "class": "CardArc",
@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Cards/CardInfo.gd"
 }, {
+"base": "MarginContainer",
+"class": "CardState",
+"language": "GDScript",
+"path": "res://Cards/States/CardState.gd"
+}, {
 "base": "Resource",
 "class": "Deck",
 "language": "GDScript",
@@ -39,10 +44,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/EnemyData.gd"
 }, {
+"base": "Node",
+"class": "FSM",
+"language": "GDScript",
+"path": "res://FSM.gd"
+}, {
 "base": "HBoxContainer",
 "class": "Hand",
 "language": "GDScript",
 "path": "res://Hand.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://State.gd"
 }, {
 "base": "Resource",
 "class": "Stats",
@@ -50,13 +65,16 @@ _global_script_classes=[ {
 "path": "res://Stats.gd"
 } ]
 _global_script_class_icons={
-"Card": "",
+"AB": "",
 "CardArc": "",
 "CardData": "",
 "CardInfo": "",
+"CardState": "",
 "Deck": "",
 "EnemyStats": "",
+"FSM": "",
 "Hand": "",
+"State": "",
 "Stats": ""
 }
 
