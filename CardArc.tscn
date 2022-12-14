@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CardArc.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+min_value = 0.2
+_data = [ Vector2( 0, 0.2 ), 0.0, 1.26, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="CardArc" type="Line2D"]
+z_index = 100
+width = 4.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+sharp_limit = 1.0
+round_precision = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}

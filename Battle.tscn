@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Cards/Card.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Cards/ShieldCard.tres" type="Resource" id=4]
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Cards/CardInfo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Cards/CardDrop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://CardArc.tscn" type="PackedScene" id=8]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 3 )
@@ -16,23 +18,30 @@ position = Vector2( 160, 64 )
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Hand" parent="UI" instance=ExtResource( 5 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="GameSpaces" type="VBoxContainer" parent="UI"]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = -28.0
-margin_right = 112.0
 margin_bottom = 4.0
 
-[node name="Card" parent="UI/Hand" instance=ExtResource( 2 )]
-margin_left = 86.0
-margin_right = 110.0
+[node name="CardDrop" parent="UI/GameSpaces" instance=ExtResource( 7 )]
 
-[node name="Card2" parent="UI/Hand" instance=ExtResource( 2 )]
-margin_left = 114.0
-margin_right = 138.0
+[node name="CardInfo" parent="UI/GameSpaces" instance=ExtResource( 6 )]
+margin_top = 116.0
+margin_bottom = 148.0
+
+[node name="Hand" parent="UI/GameSpaces" instance=ExtResource( 5 )]
+margin_top = 152.0
+margin_right = 320.0
+margin_bottom = 184.0
+
+[node name="Card" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 134.0
+margin_right = 158.0
+
+[node name="Card2" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 162.0
+margin_right = 186.0
 card_data = ExtResource( 4 )
 
-[node name="CardInfo" parent="UI" instance=ExtResource( 6 )]
+[node name="CardArc" parent="." instance=ExtResource( 8 )]
+points = PoolVector2Array( 32, 8, 16, 72, 104, 32, 136, 24, 96, 104 )

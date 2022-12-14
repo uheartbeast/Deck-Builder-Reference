@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Cards/CardDrop.gd" type="Script" id=1]
+
+[node name="CardDrop" type="ColorRect"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 320.0
+margin_bottom = 112.0
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_CardDrop_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_CardDrop_mouse_exited"]

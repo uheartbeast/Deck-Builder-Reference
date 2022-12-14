@@ -1,6 +1,8 @@
 class_name Card
 extends MarginContainer
 
+var card_arc = ReferenceStash.card_arc
+
 export(Resource) var card_data setget set_card_data
 export(Resource) var card_style
 export(Resource) var card_selected_style
@@ -14,7 +16,6 @@ onready var card_sprite := $"%CardSprite"
 onready var card_name := $"%CardName"
 onready var card_art := $"%CardArt"
 onready var card_description := $"%CardDescription"
-onready var line := $Line2D
 
 func set_card_data(value: Resource) -> void:
 	card_data = value
@@ -38,10 +39,11 @@ func set_is_selected(value : bool) -> void:
 	if not is_inside_tree(): return
 	if is_disabled: return
 	if is_selected:
-		var main = get_tree().current_scene
-		get_parent().remove_child(self)
-		main.add_child(self)
+#		var main = get_tree().current_scene
+#		get_parent().remove_child(self)
+#		main.add_child(self)
 		Events.emit_signal("request_disable_all_cards")
+		mouse_filter = MOUSE_FILTER_IGNORE
 	else:
 		Events.emit_signal("request_enable_all_cards")
 	update_style()
@@ -55,19 +57,36 @@ func _ready() -> void:
 	update_card()
 
 func _process(delta : float) -> void:
+	if not ReferenceStash.card_arc is CardArc: return
 	if is_selected:
-		rect_global_position = get_tree().current_scene.get_local_mouse_position()-rect_size/2
-#		line.points = [rect_size/2, get_local_mouse_position()]
+#		rect_global_position = get_tree().current_scene.get_local_mouse_position()-rect_size/2
+		ReferenceStash.card_arc.points = get_points()
 	else:
-		pass
-#		line.points = []
+		ReferenceStash.card_arc.points = []
+
+func get_points() -> Array:
+	var points := []
+	var start := Vector2(rect_size.x/2, card_sprite.rect_position.y)
+	var target = get_local_mouse_position()
+	var pts = 8.0
+	var distance = (target - start)
+	for i in range(pts):
+		var t = (1.0 / pts) * i
+		var x = start.x + (distance.x / pts) * i
+		var y = start.y + ease_out_cubic(t) * distance.y
+		points.append(Vector2(x, y) + rect_global_position)
+	points.append(target + rect_global_position)
+	return points
+
+func ease_out_cubic(number : float) -> float:
+	return 1.0 - pow(1.0 - number, 3.0)
 
 func _input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_mouse_right"):
 		var hand = get_tree().current_scene.find_node("Hand")
 		if hand:
-			get_parent().remove_child(self)
-			hand.add_child(self)
+#			get_parent().remove_child(self)
+#			hand.add_child(self)
 			Events.emit_signal("request_enable_all_cards")
 			self.is_selected = false
 			ReferenceStash.selected_card = null
@@ -81,7 +100,6 @@ func update_style() -> void:
 
 func update_card() -> void:
 	card_art.texture = card_data.art
-	
 	var description := ""
 	description += "[center]"
 	description += card_data.name+"\n"

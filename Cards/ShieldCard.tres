@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 name = "Shield"
 mana_cost = 1
 damage = 1
+hits = 1
 block = 5
 target_type = 0
 art = ExtResource( 2 )

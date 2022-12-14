@@ -72,15 +72,6 @@ text = "Deal 10
 damage"
 align = 1
 
-[node name="Line2D" type="Line2D" parent="."]
-show_behind_parent = true
-width = 2.0
-default_color = Color( 1, 1, 1, 1 )
-end_cap_mode = 2
-sharp_limit = 1.0
-round_precision = 2
-antialiased = true
-
 [connection signal="gui_input" from="." to="." method="_on_Card_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Card_mouse_exited"]
