@@ -17,6 +17,12 @@ script = ExtResource( 3 )
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 64 )
 
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 208, 40 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, 40 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -25,9 +31,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 4.0
 mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CardDrop" parent="UI/GameSpaces" instance=ExtResource( 7 )]
 mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CardInfo" parent="UI/GameSpaces" instance=ExtResource( 6 )]
 margin_top = 116.0
@@ -40,10 +52,30 @@ margin_bottom = 184.0
 rect_min_size = Vector2( 0, 32 )
 
 [node name="Card" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 134.0
-margin_right = 158.0
+margin_left = 64.0
+margin_right = 88.0
+
+[node name="Card3" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 92.0
+margin_right = 116.0
+
+[node name="Card4" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_right = 144.0
+
+[node name="Card5" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 148.0
+margin_right = 172.0
+
+[node name="Card6" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 176.0
+margin_right = 200.0
+
+[node name="Card7" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
+margin_left = 204.0
+margin_right = 228.0
 
 [node name="Card2" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 162.0
-margin_right = 186.0
+margin_left = 232.0
+margin_right = 256.0
 card_data = ExtResource( 4 )
