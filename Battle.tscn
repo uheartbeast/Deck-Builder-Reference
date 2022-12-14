@@ -12,6 +12,9 @@
 [node name="Battle" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="CardArc" parent="." instance=ExtResource( 8 )]
+points = PoolVector2Array( 32, 8, 16, 72, 104, 32, 136, 24, 96, 104 )
+
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 64 )
 
@@ -42,6 +45,3 @@ margin_right = 158.0
 margin_left = 162.0
 margin_right = 186.0
 card_data = ExtResource( 4 )
-
-[node name="CardArc" parent="." instance=ExtResource( 8 )]
-points = PoolVector2Array( 32, 8, 16, 72, 104, 32, 136, 24, 96, 104 )

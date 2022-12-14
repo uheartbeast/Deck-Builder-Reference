@@ -72,6 +72,18 @@ text = "Deal 10
 damage"
 align = 1
 
+[node name="States" type="Node" parent="."]
+
+[node name="InHand" type="Node" parent="States"]
+
+[node name="Hover" type="Node" parent="States"]
+
+[node name="Selected" type="Node" parent="States"]
+
+[node name="SingleTarget" type="Node" parent="States"]
+
+[node name="GeneralTarget" type="Node" parent="States"]
+
 [connection signal="gui_input" from="." to="." method="_on_Card_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Card_mouse_exited"]

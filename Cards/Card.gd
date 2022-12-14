@@ -84,10 +84,11 @@ func ease_out_cubic(number : float) -> float:
 func _input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_mouse_right"):
 		var hand = get_tree().current_scene.find_node("Hand")
-		if hand:
+		if ReferenceStash.selected_card == self:
 #			get_parent().remove_child(self)
 #			hand.add_child(self)
 			Events.emit_signal("request_enable_all_cards")
+			self.is_hovered = false
 			self.is_selected = false
 			ReferenceStash.selected_card = null
 			Events.emit_signal("request_hide_card_info")

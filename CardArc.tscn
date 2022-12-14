@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve" id=1]
 min_value = 0.2
-_data = [ Vector2( 0, 0.2 ), 0.0, 1.26, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.2 ), 0.0, 1.26, 0, 0, Vector2( 0.926573, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.2 ), 0.0, 0.0, 0, 0 ]
 
 [node name="CardArc" type="Line2D"]
 z_index = 100
