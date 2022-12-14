@@ -7,6 +7,7 @@ const CARD_HIGHLIGHT_STYLE := preload("res://Cards/CardSelectedStylebox.tres")
 const BASE_STATE = "res://Cards/States/CardBaseState.gd"
 const HOVER_STATE = "res://Cards/States/CardHoverState.gd"
 const SELECTED_STATE = "res://Cards/States/CardSelectedState.gd"
+const DISABLED_STATE = "res://Cards/States/CardDisabledState.gd"
 
 export(Resource) var card_data setget set_card_data
 
@@ -22,6 +23,7 @@ func set_card_data(value: Resource) -> void:
 	update_card()
 
 func _ready() -> void:
+	Events.connect("request_disable_other_cards", self, "_on_request_disable_other_cards")
 	update_card()
 	set_state(BASE_STATE)
 
@@ -55,3 +57,7 @@ func update_card() -> void:
 		description += "Gain " + str(card_data.block) + " [color=teal]block[/color]"
 	description += "[/center]"
 	info = description
+
+func _on_request_disable_other_cards(exception : CardState) -> void:
+	if exception == self: return
+	set_state(DISABLED_STATE)

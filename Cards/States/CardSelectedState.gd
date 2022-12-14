@@ -3,6 +3,7 @@ extends CardState
 func enter_state() -> void:
 	set_physics_process(true)
 	set_process_input(true)
+	Events.emit_signal("request_disable_other_cards", self)
 
 func exit_state() -> void:
 	ReferenceStash.card_arc.points = []
