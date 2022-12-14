@@ -24,8 +24,10 @@ layer = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 4.0
+mouse_filter = 2
 
 [node name="CardDrop" parent="UI/GameSpaces" instance=ExtResource( 7 )]
+mouse_filter = 2
 
 [node name="CardInfo" parent="UI/GameSpaces" instance=ExtResource( 6 )]
 margin_top = 116.0
@@ -35,6 +37,7 @@ margin_bottom = 148.0
 margin_top = 152.0
 margin_right = 320.0
 margin_bottom = 184.0
+rect_min_size = Vector2( 0, 32 )
 
 [node name="Card" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
 margin_left = 134.0

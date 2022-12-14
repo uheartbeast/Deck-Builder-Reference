@@ -24,6 +24,7 @@ func set_card_data(value: Resource) -> void:
 
 func _ready() -> void:
 	Events.connect("request_disable_other_cards", self, "_on_request_disable_other_cards")
+	Events.connect("request_enable_other_cards", self, "_on_request_enable_other_cards")
 	update_card()
 	set_state(BASE_STATE)
 
@@ -61,3 +62,7 @@ func update_card() -> void:
 func _on_request_disable_other_cards(exception : CardState) -> void:
 	if exception == self: return
 	set_state(DISABLED_STATE)
+
+func _on_request_enable_other_cards(exception : CardState) -> void:
+	if exception == self: return
+	set_state(BASE_STATE)

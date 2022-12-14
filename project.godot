@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
-"class": "AB",
-"language": "GDScript",
-"path": "res://AB.gd"
-}, {
 "base": "Line2D",
 "class": "CardArc",
 "language": "GDScript",
@@ -39,25 +34,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Deck.gd"
 }, {
+"base": "Area2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Enemies/Enemy.gd"
+}, {
 "base": "Stats",
 "class": "EnemyStats",
 "language": "GDScript",
 "path": "res://Enemies/EnemyData.gd"
 }, {
-"base": "Node",
-"class": "FSM",
-"language": "GDScript",
-"path": "res://FSM.gd"
-}, {
 "base": "HBoxContainer",
 "class": "Hand",
 "language": "GDScript",
 "path": "res://Hand.gd"
-}, {
-"base": "Node",
-"class": "State",
-"language": "GDScript",
-"path": "res://State.gd"
 }, {
 "base": "Resource",
 "class": "Stats",
@@ -65,16 +55,14 @@ _global_script_classes=[ {
 "path": "res://Stats.gd"
 } ]
 _global_script_class_icons={
-"AB": "",
 "CardArc": "",
 "CardData": "",
 "CardInfo": "",
 "CardState": "",
 "Deck": "",
+"Enemy": "",
 "EnemyStats": "",
-"FSM": "",
 "Hand": "",
-"State": "",
 "Stats": ""
 }
 
@@ -88,6 +76,7 @@ config/icon="res://icon.png"
 
 ReferenceStash="*res://ReferenceStash.gd"
 Events="*res://Events.gd"
+Shaker="*res://Shaker.gd"
 
 [display]
 
