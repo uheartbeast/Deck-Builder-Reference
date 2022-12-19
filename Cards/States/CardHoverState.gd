@@ -18,4 +18,3 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_mouse_left"):
 		set_state(SELECTED_STATE) # If clicked, change to the selected state
 		force_drag({}, null) # This allows the enemy to capture the mouse input while dragging
-	pass
