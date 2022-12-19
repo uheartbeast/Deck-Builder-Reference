@@ -14,12 +14,8 @@ func _physics_process(delta):
 	if not is_mouse_over_self():
 		set_state(BASE_STATE) # If the mouse is no longer hovering, swap back to the base state
 
-#func get_drag_data(position : Vector2) -> Dictionary:
-#	set_state(SELECTED_STATE)
-#	return {}
-
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_mouse_left"):
 		set_state(SELECTED_STATE) # If clicked, change to the selected state
-		get_tree().set_input_as_handled()
+		force_drag({}, null) # This allows the enemy to capture the mouse input while dragging
 	pass
