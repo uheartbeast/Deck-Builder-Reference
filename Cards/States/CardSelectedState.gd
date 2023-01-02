@@ -11,7 +11,7 @@ func exit_state() -> void:
 	Events.emit_signal("request_enable_other_cards", self)
 	Events.disconnect("enemy_selected", self, "_on_enemy_selected")
 
-func _physics_process(delta : float) -> void:
+func _physics_process(_delta : float) -> void:
 	if get_local_mouse_position().y < $"%CardSprite".rect_position.y:
 		ReferenceStash.card_arc.points = get_points()
 	else:
@@ -31,7 +31,7 @@ func _on_enemy_selected(enemy : Enemy) -> void:
 
 func get_points() -> Array:
 	var points := []
-	var start := Vector2(rect_size.x/2, $"%CardSprite".rect_position.y)
+	var start := Vector2(rect_size.x/2, card_sprite.rect_position.y)
 	var target = get_local_mouse_position()
 	var pts = 8.0
 	var distance = (target - start)

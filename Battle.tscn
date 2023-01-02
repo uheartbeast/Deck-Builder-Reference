@@ -55,30 +55,10 @@ margin_bottom = 148.0
 rect_min_size = Vector2( 0, 32 )
 
 [node name="Card" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 32.0
-margin_right = 56.0
-
-[node name="Card3" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 60.0
-margin_right = 84.0
-
-[node name="Card4" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 88.0
-margin_right = 112.0
-
-[node name="Card5" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 116.0
-margin_right = 140.0
-
-[node name="Card6" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_right = 168.0
-
-[node name="Card7" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 172.0
-margin_right = 196.0
+margin_left = 102.0
+margin_right = 126.0
 
 [node name="Card2" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 200.0
-margin_right = 224.0
+margin_left = 130.0
+margin_right = 154.0
 card_data = ExtResource( 4 )

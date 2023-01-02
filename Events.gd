@@ -1,5 +1,6 @@
 extends Node
 
+# warning-ignore-all:unused_signal
 signal request_show_card_info(info)
 signal request_hide_card_info()
 signal request_disable_other_cards(exception)

@@ -25,7 +25,7 @@ func take_hit() -> void:
 #	sprite.material = null
 	queue_free()
 
-func _on_Enemy_input_event(viewport, event, shape_idx):
+func _on_Enemy_input_event(_viewport, event, _shape_idx):
 	if (event.is_action_released("ui_mouse_left")
 	or event.is_action_pressed("ui_mouse_left")):
 		Events.emit_signal("enemy_selected", self)
