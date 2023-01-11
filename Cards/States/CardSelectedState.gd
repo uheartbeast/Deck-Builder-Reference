@@ -27,7 +27,7 @@ func _on_enemy_selected(enemy : Enemy) -> void:
 	Events.emit_signal("request_enable_other_cards", self)
 	Events.emit_signal("request_hide_card_info")
 	queue_free()
-	enemy.take_hit()
+	enemy.take_hit(card_data)
 
 func get_points() -> Array:
 	var points := []

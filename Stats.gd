@@ -8,10 +8,10 @@ var health := 1 setget set_health
 signal health_changed(health)
 
 func set_health(value: int) -> void:
-	health = value
+	health = clamp(value, 0, max_health)
 	emit_signal("health_changed", health)
 
 func create_instance() -> Resource:
 	var instance = self.duplicate()
-	health = max_health
+	instance.health = max_health
 	return instance
