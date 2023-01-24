@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Cards/Card.tscn" type="PackedScene" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://Cards/CardInfo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Cards/CardDrop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://CardArc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Cards/CardSelectedStylebox.tres" type="StyleBox" id=9]
+[ext_resource path="res://Cards/CardStylebox.tres" type="StyleBox" id=10]
+[ext_resource path="res://PixelRPGFont.tres" type="DynamicFont" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 3 )
@@ -48,29 +53,61 @@ margin_top = 80.0
 margin_right = 256.0
 margin_bottom = 112.0
 
-[node name="Hand" parent="UI/GameSpaces" instance=ExtResource( 5 )]
+[node name="MarginContainer" type="MarginContainer" parent="UI/GameSpaces"]
 margin_top = 116.0
 margin_right = 256.0
 margin_bottom = 148.0
+custom_constants/margin_right = 4
+custom_constants/margin_left = 4
+
+[node name="Base" type="HBoxContainer" parent="UI/GameSpaces/MarginContainer"]
+margin_left = 4.0
+margin_right = 252.0
+margin_bottom = 32.0
+
+[node name="Control" type="Control" parent="UI/GameSpaces/MarginContainer/Base"]
+margin_right = 40.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="Hand" parent="UI/GameSpaces/MarginContainer/Base" instance=ExtResource( 5 )]
+margin_left = 44.0
+margin_right = 204.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
 
-[node name="Card" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 60.0
-margin_right = 84.0
+[node name="Card" parent="UI/GameSpaces/MarginContainer/Base/Hand" instance=ExtResource( 2 )]
+margin_left = 12.0
+margin_right = 36.0
 
-[node name="Card3" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 88.0
-margin_right = 112.0
+[node name="Card3" parent="UI/GameSpaces/MarginContainer/Base/Hand" instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_right = 64.0
 
-[node name="Card4" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 116.0
-margin_right = 140.0
+[node name="Card4" parent="UI/GameSpaces/MarginContainer/Base/Hand" instance=ExtResource( 2 )]
+margin_left = 68.0
+margin_right = 92.0
 
-[node name="Card5" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_right = 168.0
+[node name="Card5" parent="UI/GameSpaces/MarginContainer/Base/Hand" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_right = 120.0
 
-[node name="Card2" parent="UI/GameSpaces/Hand" instance=ExtResource( 2 )]
-margin_left = 172.0
-margin_right = 196.0
+[node name="Card2" parent="UI/GameSpaces/MarginContainer/Base/Hand" instance=ExtResource( 2 )]
+margin_left = 124.0
+margin_right = 148.0
 card_data = ExtResource( 4 )
+
+[node name="EndTurnButton" type="Button" parent="UI/GameSpaces/MarginContainer/Base"]
+unique_name_in_owner = true
+margin_left = 208.0
+margin_right = 248.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 40, 0 )
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 11 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = ExtResource( 10 )
+text = "End Turn"
