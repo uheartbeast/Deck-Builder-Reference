@@ -4,10 +4,10 @@
 [ext_resource path="res://Cards/CardInfo.gd" type="Script" id=2]
 
 [node name="CardInfo" type="ColorRect"]
-margin_right = 320.0
-margin_bottom = 32.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 32 )
-color = Color( 0.247059, 0.14902, 0.192157, 0.45098 )
+color = Color( 0.247059, 0.14902, 0.192157, 0.784314 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -19,9 +19,9 @@ anchor_bottom = 1.0
 
 [node name="InfoLabel" type="RichTextLabel" parent="MarginContainer"]
 unique_name_in_owner = true
-margin_top = 5.0
-margin_right = 320.0
-margin_bottom = 26.0
+margin_top = 61.0
+margin_right = 256.0
+margin_bottom = 82.0
 size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true

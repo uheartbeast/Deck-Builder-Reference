@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PlayerHeart.gd" type="Script" id=1]
+[ext_resource path="res://Textures/PlayerHeart.png" type="Texture" id=2]
+
+[node name="PlayerHeart" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+margin_left = -10.0
+margin_top = -4.0
+margin_right = 10.0
+margin_bottom = 4.0
+text = "25"
+align = 1
+valign = 1

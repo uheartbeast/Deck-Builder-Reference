@@ -43,7 +43,7 @@ func attack() -> void:
 	var start = global_position
 	var tween = create_tween().set_trans(Tween.TRANS_QUINT)
 	var end = global_position + Vector2.DOWN * 32
-	tween.tween_property(self, "global_position", end, 0.1).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "global_position", end, 0.2).set_ease(Tween.EASE_IN)
 	tween.tween_callback(playerStats, "take_damage", [5])
 	tween.tween_property(self, "global_position", start, 0.4).set_ease(Tween.EASE_IN_OUT)
 	yield(tween, "finished")

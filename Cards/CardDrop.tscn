@@ -4,8 +4,8 @@
 
 [node name="CardDrop" type="ColorRect"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 320.0
-margin_bottom = 112.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_vertical = 3
 script = ExtResource( 1 )
 
