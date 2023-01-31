@@ -8,6 +8,7 @@ const BASE_STATE = "res://Cards/States/CardBaseState.gd"
 const HOVER_STATE = "res://Cards/States/CardHoverState.gd"
 const SELECTED_STATE = "res://Cards/States/CardSelectedState.gd"
 const DISABLED_STATE = "res://Cards/States/CardDisabledState.gd"
+const CARRY_STATE = "res://Cards/States/CardCarryState.gd"
 
 export(Resource) var card_data
 

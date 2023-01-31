@@ -8,7 +8,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["Enemies"]]
 script = ExtResource( 2 )
 enemy_stats = ExtResource( 3 )
 
