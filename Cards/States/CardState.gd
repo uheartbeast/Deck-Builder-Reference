@@ -10,6 +10,8 @@ const SELECTED_STATE = "res://Cards/States/CardSelectedState.gd"
 const DISABLED_STATE = "res://Cards/States/CardDisabledState.gd"
 const CARRY_STATE = "res://Cards/States/CardCarryState.gd"
 
+var playerStats = ReferenceStash.playerStats
+
 export(Resource) var card_data
 
 var info := ""
@@ -23,6 +25,15 @@ func _ready() -> void:
 	if not Events.is_connected("request_enable_other_cards", self, "_on_request_enable_other_cards"):
 		Events.connect("request_enable_other_cards", self, "_on_request_enable_other_cards")
 	update_card()
+
+func play_card(targets : Array) -> void:
+	if targets.empty(): return
+	for target in targets:
+		assert(target is Enemy)
+		if card_data.damage > 0: target.take_hit(card_data)
+	playerStats.block += card_data.block
+	print(playerStats.block)
+	queue_free()
 
 func is_mouse_over_self() -> bool:
 	var total_rect := get_global_rect().merge(card_art.get_global_rect())

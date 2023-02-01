@@ -35,6 +35,4 @@ func _on_card_dropped() -> void:
 	set_physics_process(false)
 	Events.emit_signal("request_enable_other_cards", self)
 	Events.emit_signal("request_hide_card_info")
-	queue_free()
-	for enemy in get_tree().get_nodes_in_group("Enemies"):
-		enemy.take_hit(card_data)
+	play_card(get_tree().get_nodes_in_group("Enemies"))

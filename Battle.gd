@@ -12,6 +12,10 @@ onready var camera = $Camera
 func _ready():
 	VisualServer.set_default_clear_color(Color.black)
 	Events.connect("player_hit", self, "_on_player_hit")
+	for i in 5:
+		var card_data : CardData = playerStats.deck.draw_card()
+		if not card_data is CardData: return
+		hand.add_card(card_data)
 
 func flash():
 	red_flash.color.a = 0.2

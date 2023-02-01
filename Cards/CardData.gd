@@ -2,8 +2,8 @@ class_name CardData
 extends Resource
 
 enum TargetType {
-	SELF,
-	ENEMY,
+	SINGLE_TARGET,
+	MULTI_TARGET,
 }
 
 export(String) var name := ""

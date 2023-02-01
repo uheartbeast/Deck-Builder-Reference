@@ -10,5 +10,5 @@ mana_cost = 1
 damage = 8
 hits = 1
 block = 0
-target_type = 1
+target_type = 0
 art = ExtResource( 2 )

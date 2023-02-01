@@ -16,5 +16,7 @@ func _physics_process(_delta):
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_mouse_left"):
-		set_state(CARRY_STATE)
+		match card_data.target_type:
+			CardData.TargetType.SINGLE_TARGET: set_state(SELECTED_STATE)
+			CardData.TargetType.MULTI_TARGET: set_state(CARRY_STATE)
 		force_drag({}, null) # This allows the enemy to capture the mouse input while dragging
