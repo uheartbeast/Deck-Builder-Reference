@@ -13,3 +13,9 @@ func add_card(card_data : CardData) -> void:
 	var card = CardScene.instance()
 	card.card_data = card_data
 	add_child(card)
+
+func discard_all_cards() -> void:
+	var cards = get_children()
+	for card in cards:
+		card.discard()
+		yield(get_tree().create_timer(0.2), "timeout")

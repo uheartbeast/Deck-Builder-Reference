@@ -32,7 +32,10 @@ func play_card(targets : Array) -> void:
 		assert(target is Enemy)
 		if card_data.damage > 0: target.take_hit(card_data)
 	playerStats.block += card_data.block
-	print(playerStats.block)
+	discard()
+
+func discard() -> void:
+	playerStats.discard.add_card(card_data)
 	queue_free()
 
 func is_mouse_over_self() -> bool:
