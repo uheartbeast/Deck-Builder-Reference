@@ -49,7 +49,8 @@ func _on_player_hit():
 func _on_EndTurnButton_button_down() -> void:
 	Events.emit_signal("request_disable_other_cards", null)
 	end_turn_button.disabled = true
-	yield(hand.discard_all_cards(), "completed")
+	if not hand.is_empty():
+		yield(hand.discard_all_cards(), "completed")
 	var enemy_list = enemies.get_children()
 	for enemy in enemy_list:
 		yield(enemy.attack(), "completed")

@@ -14,6 +14,9 @@ func add_card(card_data : CardData) -> void:
 	card.card_data = card_data
 	add_child(card)
 
+func is_empty() -> bool:
+	return get_child_count() == 0
+
 func discard_all_cards() -> void:
 	var cards = get_children()
 	for card in cards:
