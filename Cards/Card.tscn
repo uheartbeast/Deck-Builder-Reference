@@ -46,3 +46,22 @@ mouse_filter = 2
 size_flags_vertical = 3
 texture = ExtResource( 1 )
 stretch_mode = 4
+
+[node name="Control" type="Control" parent="CardSprite"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 23.0
+margin_bottom = 31.0
+mouse_filter = 2
+
+[node name="ManaCost" type="Label" parent="CardSprite/Control"]
+unique_name_in_owner = true
+margin_left = 17.0
+margin_top = 1.0
+margin_right = 22.0
+margin_bottom = 7.0
+text = "3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}

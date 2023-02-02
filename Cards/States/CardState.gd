@@ -18,6 +18,7 @@ var info := ""
 
 onready var card_sprite := $"%CardSprite"
 onready var card_art := $"%CardArt"
+onready var mana_cost := $"%ManaCost"
 
 func _ready() -> void:
 	if not Events.is_connected("request_disable_other_cards", self, "_on_request_disable_other_cards"):
@@ -66,6 +67,7 @@ func retrieve_properties(properties : Dictionary) -> void:
 		set(property, properties[property])
 
 func update_card() -> void:
+	mana_cost.text = str(card_data.mana_cost)
 	card_art.texture = card_data.art
 	var description := ""
 	description += "[center]"
