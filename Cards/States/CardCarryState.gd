@@ -7,17 +7,20 @@ func enter_state() -> void:
 	set_physics_process(true)
 	set_process_input(true)
 	Events.emit_signal("request_disable_other_cards", self)
+	Events.emit_signal("enable_card_drop_area")
 	offset = rect_size/2.0
 	hand = get_parent()
 	mouse_filter = MOUSE_FILTER_IGNORE
 	reparent(get_tree().current_scene)
 	Events.connect("card_dropped", self, "_on_card_dropped")
+	
 
 func exit_state() -> void:
 	ReferenceStash.card_arc.points = []
 	reparent(hand)
 	mouse_filter = MOUSE_FILTER_STOP
 	Events.emit_signal("request_enable_other_cards", self)
+	Events.emit_signal("disable_card_drop_area")
 	Events.disconnect("card_dropped", self, "_on_card_dropped")
 
 func reparent(new_parent : Node) -> void:
@@ -34,5 +37,6 @@ func _input(event : InputEvent) -> void:
 func _on_card_dropped() -> void:
 	set_physics_process(false)
 	Events.emit_signal("request_enable_other_cards", self)
+	Events.emit_signal("disable_card_drop_area")
 	Events.emit_signal("request_hide_card_info")
 	play_card(get_tree().get_nodes_in_group("Enemies"))
